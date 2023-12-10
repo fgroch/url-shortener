@@ -26,4 +26,5 @@ To run tests locally ``redis`` must be up and running:
 - `url validation`
 - `hash colisions`
 - `other hashing methods`
+- `different storage e.g. AWS DynamoDB`
 - `shortening addresses only for a given domain, e.g.: com.example/very-long-url?param=param1 -> com.example/bac8a6be`

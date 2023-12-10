@@ -1,0 +1,50 @@
+server:
+  servlet:
+    context-path: /url-shortener/
+  shutdown: graceful
+  max-http-request-header-size: 10KB
+
+springdoc:
+  swagger-ui:
+    path: /internal_api/
+  api-docs:
+    path: /internal_api/api-docs
+  show-login-endpoint: false
+
+spring:
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+      repositories:
+        enabled: true
+  lifecycle:
+    timeout-per-shutdown-phase: 1m
+  main:
+    banner-mode: off
+
+logging:
+  level:
+    org.springframework.security: info
+    org.springframework.web: info
+
+
+management:
+  endpoint:
+    info:
+      enabled: true
+    health:
+      show-details: never
+    metrics:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+      base-path: /status/
+  metrics:
+    distribution:
+      percentiles-histogram:
+        all: true
+      percentiles:
+        all: 0.5, 0.75, 0.95

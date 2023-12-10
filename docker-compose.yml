@@ -5,15 +5,3 @@ services:
     image: public.ecr.aws/docker/library/redis:latest
     ports:
       - "6379:6379"
-  url-shortener:
-    image: public.ecr.aws/docker/library/gradle:7.5.1-jdk17
-    ports:
-      - "8080:8080"
-    volumes:
-      - ".:/home/gradle/project"
-    working_dir: "/home/gradle/project"
-    user: gradle
-    command: >
-      gradle --no-daemon --info bootRun
-    environment:
-      - DOCKER_HOST=unix:///var/run/docker.sock

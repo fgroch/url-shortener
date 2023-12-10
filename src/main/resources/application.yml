@@ -16,8 +16,7 @@ spring:
     redis:
       host: ${REDIS_HOST:localhost}
       port: ${REDIS_PORT:6379}
-      repositories:
-        enabled: true
+      client-type: jedis
   lifecycle:
     timeout-per-shutdown-phase: 1m
   main:
